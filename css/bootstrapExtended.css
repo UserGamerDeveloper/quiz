@@ -1,0 +1,283 @@
+/* Card entrance animation */
+.card-entrance {
+    animation: cardEntrance 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    opacity: 0;
+}
+
+@keyframes cardEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Flip card styles */
+.flip-card {
+    perspective: 1000px;
+    height: 320px;
+    cursor: pointer;
+}
+
+.flip-card:hover .flip-card-inner {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.flip-card.disabled {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    overflow-y: auto;
+    border-radius: 12px;
+}
+
+.flip-card-front {
+    background: linear-gradient(145deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.flip-card-front::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+}
+
+.flip-card-front .question-number {
+    font-size: 4.5rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+.flip-card-front .click-hint {
+    font-size: 1rem;
+    opacity: 0.85;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+}
+
+.flip-card-back {
+    background: linear-gradient(145deg, var(--bs-body-bg) 0%, var(--bs-secondary-bg) 100%);
+    color: var(--bs-body-color);
+    transform: rotateY(180deg);
+    border: 1px solid var(--bs-border-color);
+}
+
+/* Small flip card for results phase */
+.flip-card-small {
+    perspective: 500px;
+    height: 85px;
+    cursor: pointer;
+}
+
+.flip-card-small:hover .flip-card-small .flip-card-inner {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.flip-card-small .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.flip-card-small.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front-small,
+.flip-card-back-small {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+.flip-card-front-small {
+    background: linear-gradient(145deg, #6366f1 0%, #8b5cf6 100%);
+    color: white;
+}
+
+.flip-card-back-small {
+    background: linear-gradient(145deg, var(--bs-secondary-bg) 0%, var(--bs-tertiary-bg) 100%);
+    border: 1px solid var(--bs-border-color);
+    color: var(--bs-body-color);
+    transform: rotateY(180deg);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.question-number-small {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+/* Enhanced player cards */
+.player-card {
+    transition: all 0.3s ease;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.player-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhanced button styles */
+.btn-primary {
+    background: linear-gradient(145deg, #6366f1 0%, #8b5cf6 100%);
+    border: none;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(145deg, #4f46e5 0%, #7c3aed 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+}
+
+.btn-success {
+    background: linear-gradient(145deg, #10b981 0%, #059669 100%);
+    border: none;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    background: linear-gradient(145deg, #059669 0%, #047857 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+.btn-danger {
+    background: linear-gradient(145deg, #ef4444 0%, #dc2626 100%);
+    border: none;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(145deg, #dc2626 0%, #b91c1c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+}
+
+/* Card styling improvements */
+.card {
+    border-radius: 16px;
+    border: 1px solid var(--bs-border-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+    background: linear-gradient(145deg, var(--bs-secondary-bg) 0%, var(--bs-tertiary-bg) 100%);
+    border-bottom: 1px solid var(--bs-border-color);
+    font-weight: 600;
+}
+
+.card-footer {
+    background: linear-gradient(145deg, var(--bs-secondary-bg) 0%, var(--bs-tertiary-bg) 100%);
+    border-top: 1px solid var(--bs-border-color);
+}
+
+/* Alert improvements */
+.alert {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Form controls */
+.form-control, .form-select {
+    border-radius: 10px;
+    border: 1px solid var(--bs-border-color);
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    border-color: #6366f1;
+}
+
+/* Badge improvements */
+.badge {
+    font-weight: 600;
+    padding: 0.5em 0.85em;
+    border-radius: 8px;
+}
+
+/* Winner celebration */
+.border-warning {
+    box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.3), 0 8px 30px rgba(234, 179, 8, 0.2) !important;
+}
+
+/* Text gradient */
+.text-gradient {
+    background: linear-gradient(145deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Page container */
+.container {
+    max-width: 1200px;
+}

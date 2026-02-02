@@ -1,0 +1,17 @@
+{
+  "category": "Технологии",
+  "questions": [
+    {
+      "text": "Какая компания разработала .NET?",
+      "answer": 3
+    },
+    {
+      "text": "Что такое WebAssembly?",
+      "answer": 5
+    },
+    {
+      "text": "Какой год был основан Microsoft?",
+      "answer": 8
+    }
+  ]
+}
